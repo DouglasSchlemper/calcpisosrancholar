@@ -62,7 +62,43 @@
                   onChange={(e) => setArea(e.target.value)}
                 />
               </div>
-              {/* Os outros campos e botão vão aqui */}
+              <div>
+                <label htmlFor="tileSizeHorizontal" className="block text-gray-800 font-bold mb-2">
+                  Tamanho do Azulejo (Horizontal) 📏
+                </label>
+                <input
+                  type="text"
+                  id="tileSizeHorizontal"
+                  name="tileSizeHorizontal"
+                  className="w-full border border-gray-300 p-2 rounded-lg"
+                  placeholder="Insira o tamanho do azulejo (horizontal)"
+                  value={tileSizeHorizontal}
+                  onChange={(e) => setTileSizeHorizontal(e.target.value)}
+                />
+              </div>
+              <div>
+                <label htmlFor="tileSizeVertical" className="block text-gray-800 font-bold mb-2">
+                  Tamanho do Azulejo (Vertical) 📏
+                </label>
+                <input
+                  type="text"
+                  id="tileSizeVertical"
+                  name="tileSizeVertical"
+                  className="w-full border border-gray-300 p-2 rounded-lg"
+                  placeholder="Insira o tamanho do azulejo (vertical)"
+                  value={tileSizeVertical}
+                  onChange={(e) => setTileSizeVertical(e.target.value)}
+                />
+              </div>
+              <div>
+                <button
+                  type="button"
+                  className="w-full rounded-3xl bg-black px-6 py-2 text-xl font-medium uppercase text-white"
+                  onClick={calculateAmounts}
+                >
+                  Calcular 🧮
+                </button>
+              </div>
               {error && <p className="text-red-500">{error}</p>}
             </form>
             {result && <p className="mt-4 text-green-500 animate__animated animate__fadeIn">{result}</p>}
