@@ -21,15 +21,8 @@
       const [tileSizeVertical, setTileSizeVertical] = useState("");
       const [result, setResult] = useState("");
       const [totalSacks, setTotalSacks] = useState("");
-      const [error, setError] = useState("");
 
       const calculateAmounts = () => {
-        if (!area || !tileSizeHorizontal || !tileSizeVertical) {
-          setError("Todos os campos são obrigatórios!");
-          return;
-        }
-
-        setError("");
         const areaFloat = parseFloat(area);
         const tileSizeHorizontalFloat = parseFloat(tileSizeHorizontal);
         const tileSizeVerticalFloat = parseFloat(tileSizeVertical);
@@ -44,13 +37,13 @@
       };
 
       return (
-        <div className="flex flex-col items-center justify-center h-screen bg-gradient-to-r from-blue-400 via-green-500 to-purple-600">
-          <div className="bg-white p-10 rounded-lg shadow-lg w-1/2">
-            <h1 className="text-4xl font-bold mb-4 text-center">Calculadora de Azulejos 📏</h1>
+        <div className="flex flex-col items-center justify-center h-screen bg-gray-200">
+          <div className="bg-white p-10 rounded-lg shadow-lg">
+            <h1 className="text-3xl font-bold mb-4">Calculadora de Azulejos</h1>
             <form className="space-y-6">
               <div>
                 <label htmlFor="area" className="block text-gray-800 font-bold mb-2">
-                  Área (m²) 📐
+                  Área (m²)
                 </label>
                 <input
                   type="text"
@@ -64,7 +57,7 @@
               </div>
               <div>
                 <label htmlFor="tileSizeHorizontal" className="block text-gray-800 font-bold mb-2">
-                  Tamanho do Azulejo (Horizontal) 📏
+                  Tamanho do Azulejo (Horizontal)
                 </label>
                 <input
                   type="text"
@@ -78,7 +71,7 @@
               </div>
               <div>
                 <label htmlFor="tileSizeVertical" className="block text-gray-800 font-bold mb-2">
-                  Tamanho do Azulejo (Vertical) 📏
+                  Tamanho do Azulejo (Vertical)
                 </label>
                 <input
                   type="text"
@@ -96,13 +89,12 @@
                   className="w-full rounded-3xl bg-black px-6 py-2 text-xl font-medium uppercase text-white"
                   onClick={calculateAmounts}
                 >
-                  Calcular 🧮
+                  Calcular
                 </button>
               </div>
-              {error && <p className="text-red-500">{error}</p>}
             </form>
-            {result && <p className="mt-4 text-green-500 animate__animated animate__fadeIn">{result}</p>}
-            {totalSacks && <p className="mt-4 text-green-500 animate__animated animate__fadeIn">{totalSacks}</p>}
+            {result && <p className="mt-4">{result}</p>}
+            {totalSacks && <p className="mt-4">{totalSacks}</p>}
           </div>
         </div>
       );
